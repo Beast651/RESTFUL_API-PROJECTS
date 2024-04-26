@@ -17,7 +17,7 @@ app.set("views", path.join(__dirname, "/views"));
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Korean@5678",
+  password: "Your_Password",
   database: "delta_app",
 });
 
@@ -29,25 +29,6 @@ let getRandomUser = () => {
     faker.internet.password(),
   ];
 };
-
-// A simple SELECT query
-
-// let q = "INSERT INTO user (id,username,email,password) VALUES ?";
-// let data = [];
-
-// for (let i = 1; i <= 20; i++) {
-//   data.push(getRandomUser());
-// }
-// try {
-//   connection.query(q, [data], (err, result) => {
-//     if (err) throw err;
-//     console.log(result);
-//   });
-// } catch (error) {
-//   console.log(error);
-// }
-
-// connection.end();
 
 // HOME ROUTE
 app.get("/", (req, res) => {
@@ -121,9 +102,13 @@ app.patch("/user/:id", (req, res) => {
   }
 });
 
+// Add Route
+
 app.get("/user/add", (req, res) => {
   res.render("new.ejs");
 });
+
+// Push the New Data and added into database
 
 app.post("/user", (req, res) => {
   let id = uuidv4();
@@ -143,6 +128,7 @@ app.post("/user", (req, res) => {
   }
 });
 
+// Delete Route
 app.get("/user/:id/del", (req, res) => {
   let { id } = req.params;
   let q = `SELECT * FROM user WHERE id = '${id}'`;
@@ -158,6 +144,8 @@ app.get("/user/:id/del", (req, res) => {
     console.log(err);
   }
 });
+
+// Remove the data from the database:
 
 app.delete("/user/:id", (req, res) => {
   let { id } = req.params;
