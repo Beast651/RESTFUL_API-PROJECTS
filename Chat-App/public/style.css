@@ -1,0 +1,45 @@
+.chat {
+  background-color: aqua;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.from {
+  background-color: rgb(16, 174, 109);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.msg {
+  background-color: royalblue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.to {
+  background-color: rgb(94, 193, 232);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.edit {
+  background-color: rgb(94, 193, 232);
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.del {
+  background-color: rgb(94, 193, 232);
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btns {
+  display: flex;
+}
